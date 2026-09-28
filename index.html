@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Diri</title>
+    
+    <!-- CSS Internal -->
+    <style>
+        /* Reset & Base Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container Card */
+        .card-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header / Foto Profil */
+        .card-header {
+            background: #2c3e50;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+        }
+
+        .card-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .card-header p {
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        /* Body / Tabel Informasi */
+        .card-body {
+            padding: 30px;
+        }
+
+        .biodata-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .biodata-table tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .biodata-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .biodata-table td {
+            padding: 12px 8px;
+            font-size: 15px;
+            color: #333333;
+        }
+
+        .biodata-table td.label {
+            font-weight: 600;
+            color: #2c3e50;
+            width: 35%;
+        }
+
+        .biodata-table td.colon {
+            width: 5%;
+            text-align: center;
+        }
+
+        .biodata-table td.value {
+            width: 60%;
+        }
+
+        /* Bagian Minat / Keahlian (Pills) */
+        .skills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .skill-badge {
+            background-color: #eef2f7;
+            color: #3498db;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Footer & Tombol Interaktif */
+        .card-footer {
+            background-color: #f9faec;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .btn-greet {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-greet:hover {
+            background-color: #2980b9;
+        }
+
+        #greeting-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #27ae60;
+            font-weight: 600;
+            min-height: 20px; /* Menjaga tata letak tetap stabil saat teks muncul */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container Utama Biodata -->
+    <div class="card-container">
+        
+        <!-- Header: Foto dan Nama -->
+        <div class="card-header">
+            <!-- Gambar Placeholder (Bisa diganti dengan path foto kamu, misal: "foto.jpg") -->
+            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img" id="profile-pic">
+            <h1 id="user-name">Nama Lengkap</h1>
+            <p id="user-title">Pelajar / Siswa</p>
+        </div>
+
+        <!-- Body: Detail Informasi Biodata -->
+        <div class="card-body">
+            <table class="biodata-table">
+                <tr>
+                    <td class="label">Nama Lengkap</td>
+                    <td class="colon">:</td>
+                    <td class="value">Nama Lengkap Anda</td>
+                </tr>
+                <tr>
+                    <td class="label">Tempat, Tgl Lahir</td>
+                    <td class="colon">:</td>
+                    <td class="value">Kota, 01 Januari 2010</td>
+                </tr>
+                <tr>
+                    <td class="label">Jenis Kelamin</td>
+                    <td class="colon">:</td>
+                    <td class="value">Laki-laki / Perempuan</td>
+                </tr>
+                <tr>
+                    <td class="label">Alamat</td>
+                    <td class="colon">:</td>
+                    <td class="value">Jl. Contoh Alamat No. 123, Bandung</td>
+                </tr>
+                <tr>
+                    <td class="label">Pendidikan</td>
+                    <td class="colon">:</td>
+                    <td class="value">SMP / SMA / Perguruan Tinggi</td>
+                </tr>
+                <tr>
+                    <td class="label">Hobi</td>
+                    <td class="colon">:</td>
+                    <td class="value">Membaca, Menulis, Mendengarkan Musik</td>
+                </tr>
+                <tr>
+                    <td class="label">Minat & Keahlian</td>
+                    <td class="colon">:</td>
+                    <td class="value">
+                        <div class="skills">
+                            <span class="skill-badge">Bahasa</span>
+                            <span class="skill-badge">Sains</span>
+                            <span class="skill-badge">Desain</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer: Tombol Interaksi JavaScript -->
+        <div class="card-footer">
+            <button class="btn-greet" onclick="sayHello()">Sapa Saya!</button>
+            <p id="greeting-text"></p>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Internal -->
+    <script>
+        // Fungsi untuk memberikan pesan sapaan interaktif
+        function sayHello() {
+            const greetingElement = document.getElementById('greeting-text');
+            const name = document.getElementById('user-name').innerText;
+            
+            // Mendapatkan waktu saat ini
+            const hours = new Date().getHours();
+            let timeGreeting = "Selamat Datang";
+
+            if (hours >= 5 && hours < 12) {
+                timeGreeting = "Selamat Pagi";
+            } else if (hours >= 12 && hours < 15) {
+                timeGreeting = "Selamat Siang";
+            } else if (hours >= 15 && hours < 18) {
+                timeGreeting = "Selamat Sore";
+            } else {
+                timeGreeting = "Selamat Malam";
+            }
+
+            // Menampilkan pesan pada elemen <p id="greeting-text">
+            greetingElement.innerText = `${timeGreeting}! Terima kasih telah mengunjungi profil biodata saya.`;
+        }
+    </script>
+
+</body>
+</html>
